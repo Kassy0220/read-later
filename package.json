@@ -1,0 +1,13 @@
+{
+  "name": "read_later",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Read Later Rails Application",
+  "scripts": {
+    "format": "prettier --write app/javascript/",
+    "format:check": "prettier --check app/javascript/"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}
