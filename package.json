@@ -2,12 +2,16 @@
   "name": "read_later",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Read Later Rails Application",
   "scripts": {
     "format": "prettier --write app/javascript/",
-    "format:check": "prettier --check app/javascript/"
+    "format:check": "prettier --check app/javascript/",
+    "lint": "eslint app/javascript/",
+    "lint:fix": "eslint app/javascript/ --fix"
   },
   "devDependencies": {
+    "eslint": "^9.39.1",
     "prettier": "^3.6.2"
   }
 }
