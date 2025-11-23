@@ -1,0 +1,63 @@
+---
+# Enable all default linters
+EnableDefaultLinters: true
+
+linters:
+  # Checks for XSS vulnerabilities in ERB templates
+  # Ensures that user input is properly escaped
+  ErbSafety:
+    enabled: true
+
+  # Runs RuboCop on Ruby code inside ERB templates
+  # Inherits rules from .rubocop.yml
+  Rubocop:
+    enabled: true
+    rubocop_config:
+      inherit_from:
+        - .rubocop.yml
+      # Disable indentation check (ERB templates have special indentation)
+      Layout/InitialIndentation:
+        Enabled: false
+      # Disable trailing empty lines check (ERB files may not end with newline)
+      Layout/TrailingEmptyLines:
+        Enabled: false
+      # Disable trailing whitespace check (can conflict with ERB syntax)
+      Layout/TrailingWhitespace:
+        Enabled: false
+
+  # Ensures proper HTML structure and validates HTML syntax
+  ParserErrors:
+    enabled: true
+
+  # Prevents self-closing tags on non-void elements
+  # e.g., <div /> is invalid, should be <div></div>
+  SelfClosingTag:
+    enabled: true
+
+  # Ensures closing tags match opening tags
+  # e.g., <div>...</span> is invalid
+  ClosingErbTagIndent:
+    enabled: true
+
+  # Prevents extra or missing spaces in ERB tags
+  # e.g., <%=  foo %> should be <%= foo %>
+  ExtraNewline:
+    enabled: true
+
+  # Ensures final newline exists in files
+  FinalNewline:
+    enabled: true
+
+  # Enforces consistent spacing in ERB tags
+  # e.g., <%=foo%> should be <%= foo %>
+  SpaceAroundErbTag:
+    enabled: true
+
+  # Prevents trailing whitespace at end of lines
+  TrailingWhitespace:
+    enabled: true
+
+  # Ensures HTML tags are properly closed
+  # e.g., warns about <br> instead of <br /> in XHTML
+  HtmlSyntax:
+    enabled: true
